@@ -43,10 +43,19 @@ padding:30px;
 .box{
 background:white;
 margin:20px auto;
-padding:20px;
+padding:25px;
 max-width:600px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+input{
+width:90%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
 }
 
 .btn{
@@ -54,10 +63,11 @@ display:inline-block;
 padding:15px 30px;
 background:#25D366;
 color:white;
-text-decoration:none;
+border:none;
 border-radius:50px;
 font-size:18px;
-margin-top:20px;
+margin-top:15px;
+cursor:pointer;
 transition:0.3s;
 }
 
@@ -99,13 +109,47 @@ margin-top:30px;
 </p>
 </div>
 
-<a class="btn" href="https://wa.me/91YOURNUMBER">Book Now on WhatsApp</a>
+<div class="box">
+<h3>Book Your Seat Now</h3>
+
+<form onsubmit="sendToWhatsApp(); return false;">
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Your WhatsApp Number" required>
+<input type="email" id="email" placeholder="Your Email Address" required>
+
+<button type="submit" class="btn">Submit & Book Now</button>
+
+</form>
+
+</div>
 
 </div>
 
 <footer>
 © 2026 Manali Tour Offer | Limited Eid Seats Available
 </footer>
+
+<script>
+function sendToWhatsApp(){
+
+var name = document.getElementById("name").value;
+var phone = document.getElementById("phone").value;
+var email = document.getElementById("email").value;
+
+var message = "New Manali Eid Booking Lead:%0A%0A"
++ "Name: " + name + "%0A"
++ "Customer WhatsApp: " + phone + "%0A"
++ "Email: " + email;
+
+var yourNumber = "919756377412"; 
+
+var url = "https://wa.me/" + yourNumber + "?text=" + message;
+
+window.open(url, '_blank');
+
+}
+</script>
 
 </body>
 </html>
